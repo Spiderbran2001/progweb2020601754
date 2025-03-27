@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+
+    let ori="Murcielago";
+    let f=ori.replace(/[aeiou]/gi, function(vocal){
+        return vocal+"f"+vocal.toLowerCase();
+    });
+    let Vocales=ori.match(/[aeiou]/gi).length;
+    let cons=ori.match(/[Mrclg]/gi).length;
+    document.write("Numero de vocales: "+cons+"<br>");
+    document.write("Numero de vocales: "+Vocales+"<br>");
+   document.write("Palabra priginal: "+ori+"<br>");
+   document.write("Palabra en lenguaje F: "+f);
+       
+</script>
+</body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    let i;
+    let suma=0;
+    let cont=0;
+    let numeros = [];
+document.write("<ol>");
+    for ( i = 2; i < 401; i +=2) {
+        document.write("<li>" +(i)+ "<br></li>");
+suma += i;
+cont ++;
+        }
+        
+        document.write("</ol>");
+        let prom= suma/cont;
+        document.write("<strong>El promedio es: </strong>"+ prom+"<br>");
+        document.write("<strong>No tiene moda esta secenia numerica</strong>"+"<br>");
+        let med=(200+202)/2;
+        document.write("<strong>La mediana es: </strong>"+ med);
+        //if(cont % 2===0){
+        //let mitad1 = numeros[(cont / 2) - 1];
+        //mediana = (mitad1 + mitad2) / 2;
+        //}
+       
+       
+       
+</script>
+</body>
