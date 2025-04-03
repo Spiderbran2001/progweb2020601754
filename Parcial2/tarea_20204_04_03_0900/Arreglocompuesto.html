@@ -1,0 +1,35 @@
+<html>
+   <head>
+    <title>Meses y su Ordinal</title>
+    <script>
+   const comp = ["Valdepenia",6,false,"Eirck",66,true,
+];
+let conc="";
+let suma=0;
+let y = true;
+ for(let i of comp){
+if(typeof i === "string"){
+    conc += i +"";
+}else if( typeof i ==="number"){
+    suma += i;
+}else if(typeof i === "boolean"){
+    y = y && i
+}
+    
+
+ };
+
+    
+    
+   document.write("Concatenacion:X "+conc+"<br>");
+   document.write("Suma "+suma +"<br>");
+   document.write("AND: "+y +"<br>");
+
+    
+
+    </script>
+   </head>
+   <body>
+    <h1></h1>
+   </body> 
+</html>
