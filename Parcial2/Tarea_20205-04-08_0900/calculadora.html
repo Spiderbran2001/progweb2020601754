@@ -1,0 +1,119 @@
+<html>
+<head>
+    <style>
+        div {
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        input {
+            margin-left: 200px;
+            margin-top: 50px;
+            width: 265px;
+            height: 40px;
+            font-size: 24px;
+            text-align: right;
+        }
+
+        #div1 { margin-top: 20px; margin-left: 200px; }
+        #div2 { margin-top: -50px; margin-left: 255px; }
+        #div3 { margin-top: -50px; margin-left: 310px; }
+        #div4 { margin-top: -50px; margin-left: 365px; }
+        #div5 { margin-top: 5px; margin-left: 200px; }
+        #div6 { margin-top: -50px; margin-left: 255px; }
+        #div7 { margin-top: -50px; margin-left: 310px; }
+        #div8 { margin-top: -50px; margin-left: 365px; }
+        #div9 { margin-top: 5px; margin-left: 200px; }
+        #div0 { margin-top: -50px; margin-left: 255px; }
+        #divDot { margin-top: -50px; margin-left: 310px; }
+        #divEqual { margin-top: -50px; margin-left: 365px; }
+        #divPlus { margin-top: 5px; margin-left: 200px; }
+        #divMinus { margin-top: -50px; margin-left: 255px; }
+        #divMultiply { margin-top: -50px; margin-left: 310px; }
+        #divDivide { margin-top: -50px; margin-left: 365px; }
+        #divClear { margin-top: 5px; margin-left: 200px; }
+        #divEmpty1 { margin-top: -50px; margin-left: 255px; visibility: hidden; }
+        #divEmpty2 { margin-top: -50px; margin-left: 310px; visibility: hidden; }
+        #divEmpty3 { margin-top: -50px; margin-left: 365px; visibility: hidden; }
+    </style>
+
+    <script>
+        function btn_click(val) {
+            var display = document.getElementById("display");
+            if (val == "=") {
+                try {
+                    display.value = eval(display.value);
+                } catch {
+                    display.value = "Error";
+                }
+            } else if (val == "C") {
+                display.value = "";
+            } else {
+                display.value += val;
+            }
+        }
+
+        let selectedDiv = null;
+        const keyToDiv = {
+            '0': 'div0', '1': 'div1', '2': 'div2', '3': 'div3', '4': 'div4',
+            '5': 'div5', '6': 'div6', '7': 'div7', '8': 'div8', '9': 'div9',
+            '+': 'divPlus', '-': 'divMinus', '/': 'divDivide', '*': 'divMultiply',
+            '=': 'divEqual', 'Enter': 'divEqual', 'c': 'divClear', 'C': 'divClear',
+            '.': 'divDot'
+        };
+
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            const divId = keyToDiv[key];
+            if (divId) {
+                selectedDiv = document.getElementById(divId);
+                selectedDiv.style.backgroundColor = "grey";
+                btn_click(selectedDiv.innerText);
+            }
+        });
+
+        document.addEventListener('keyup', function(event) {
+            if (selectedDiv) {
+                selectedDiv.style.backgroundColor = "blue";
+                selectedDiv = null;
+            }
+        });
+    </script>
+</head>
+
+<body>
+    
+    <input type="text" id="display" readonly />
+
+    
+    <div id="div1" onclick="btn_click('1')">1</div>
+    <div id="div2" onclick="btn_click('2')">2</div>
+    <div id="div3" onclick="btn_click('3')">3</div>
+    <div id="div4" onclick="btn_click('4')">4</div>
+    <div id="div5" onclick="btn_click('5')">5</div>
+    <div id="div6" onclick="btn_click('6')">6</div>
+    <div id="div7" onclick="btn_click('7')">7</div>
+    <div id="div8" onclick="btn_click('8')">8</div>
+    <div id="div9" onclick="btn_click('9')">9</div>
+    <div id="div0" onclick="btn_click('0')">0</div>
+    <div id="divDot" onclick="btn_click('.')">.</div>
+    <div id="divEqual" onclick="btn_click('=')">=</div>
+    <div id="divPlus" onclick="btn_click('+')">+</div>
+    <div id="divMinus" onclick="btn_click('-')">-</div>
+    <div id="divMultiply" onclick="btn_click('*')">X</div>
+    <div id="divDivide" onclick="btn_click('/')">/</div>
+    <div id="divClear" onclick="btn_click('C')">C</div>
+
+    <div id="divEmpty1"></div>
+    <div id="divEmpty2"></div>
+    <div id="divEmpty3"></div>
+</body>
+</html>
+ 
